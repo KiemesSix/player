@@ -12636,7 +12636,7 @@ function DefaultAccessibilityMenu() {
   });
 }
 function DefaultAnnouncementsMenuCheckbox() {
-  const { userPrefersAnnouncements, translations } = useDefaultLayoutContext(), label = "Announcements";
+  const { userPrefersAnnouncements, translations } = useDefaultLayoutContext(), label = "Thông báo";
   return DefaultMenuItem({
     label: $i18n$1(translations, label),
     children: DefaultMenuCheckbox({
