@@ -11801,7 +11801,7 @@ function DefaultGoogleCastButton({ tooltip }) {
   `;
 }
 function DefaultPlayButton({ tooltip }) {
-  const { translations } = useDefaultLayoutContext(), $playText = $i18n$1(translations, "Play"), $pauseText = $i18n$1(translations, "Pause");
+  const { translations } = useDefaultLayoutContext(), $playText = $i18n$1(translations, "Play"), $pauseText = $i18n$1(translations, "Tạm dừng");
   return html`
     <media-tooltip class="vds-play-tooltip vds-tooltip">
       <media-tooltip-trigger>
@@ -13786,7 +13786,7 @@ class MediaAnnouncer extends Component {
   }
   #watchPaused() {
     const { paused } = this.#media.$state;
-    this.#setLabel(!paused() ? "Play" : "Pause");
+    this.#setLabel(!paused() ? "Phát" : "Tạm dừng");
   }
   #watchFullscreen() {
     const { fullscreen } = this.#media.$state;
@@ -21067,7 +21067,7 @@ function PIPButton() {
   `;
 }
 function PlayButton() {
-  const { translations } = usePlyrLayoutContext(), $playText = $i18n(translations, "Play"), $pauseText = $i18n(translations, "Pause");
+  const { translations } = usePlyrLayoutContext(), $playText = $i18n(translations, "Play"), $pauseText = $i18n(translations, "Tạm dừng");
   return html`
     <media-play-button class="plyr__controls__item plyr__control" data-no-label data-plyr="play">
       <slot name="pause-icon" data-class="icon--pressed"></slot>
