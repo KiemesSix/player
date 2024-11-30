@@ -11784,9 +11784,9 @@ function DefaultAirPlayButton({ tooltip }) {
 }
 function DefaultGoogleCastButton({ tooltip }) {
   const { translations } = useDefaultLayoutContext(), { remotePlaybackState } = useMediaState(), $label = $signal(() => {
-    const googleCastText = i18n$1(translations, "Google Cast"), stateText = uppercaseFirstChar(remotePlaybackState());
+    const googleCastText = i18n$1(translations, "Truyền"), stateText = uppercaseFirstChar(remotePlaybackState());
     return `${googleCastText} ${stateText}`;
-  }), $googleCastText = $i18n$1(translations, "Google Cast");
+  }), $googleCastText = $i18n$1(translations, "Truyền");
   return html`
     <media-tooltip class="vds-google-cast-tooltip vds-tooltip">
       <media-tooltip-trigger>
@@ -11801,13 +11801,13 @@ function DefaultGoogleCastButton({ tooltip }) {
   `;
 }
 function DefaultPlayButton({ tooltip }) {
-  const { translations } = useDefaultLayoutContext(), $playText = $i18n$1(translations, "Play"), $pauseText = $i18n$1(translations, "Tạm dừng");
+  const { translations } = useDefaultLayoutContext(), $playText = $i18n$1(translations, "Phát (k)"), $pauseText = $i18n$1(translations, "Tạm dừng (k)");
   return html`
     <media-tooltip class="vds-play-tooltip vds-tooltip">
       <media-tooltip-trigger>
         <media-play-button
           class="vds-play-button vds-button"
-          aria-label=${$i18n$1(translations, "Play")}
+          aria-label=${$i18n$1(translations, "Phát (k)")}
         >
           ${IconSlots(["play", "pause", "replay"])}
         </media-play-button>
@@ -11823,13 +11823,13 @@ function DefaultMuteButton({
   tooltip,
   ref: ref$1 = noop
 }) {
-  const { translations } = useDefaultLayoutContext(), $muteText = $i18n$1(translations, "Mute"), $unmuteText = $i18n$1(translations, "Unmute");
+  const { translations } = useDefaultLayoutContext(), $muteText = $i18n$1(translations, "Tắt tiếng (m)"), $unmuteText = $i18n$1(translations, "Bật âm thanh (m)");
   return html`
     <media-tooltip class="vds-mute-tooltip vds-tooltip">
       <media-tooltip-trigger>
         <media-mute-button
           class="vds-mute-button vds-button"
-          aria-label=${$i18n$1(translations, "Mute")}
+          aria-label=${$i18n$1(translations, "Tắt tiếng (m)")}
           ${ref(ref$1)}
         >
           ${IconSlots(["mute", "volume-low", "volume-high"])}
@@ -11843,7 +11843,7 @@ function DefaultMuteButton({
   `;
 }
 function DefaultCaptionButton({ tooltip }) {
-  const { translations } = useDefaultLayoutContext(), $ccOnText = $i18n$1(translations, "Closed-Captions On"), $ccOffText = $i18n$1(translations, "Closed-Captions Off");
+  const { translations } = useDefaultLayoutContext(), $ccOnText = $i18n$1(translations, "Phụ đề (c)"), $ccOffText = $i18n$1(translations, "Phụ đề (c)");
   return html`
     <media-tooltip class="vds-caption-tooltip vds-tooltip">
       <media-tooltip-trigger>
@@ -11862,7 +11862,7 @@ function DefaultCaptionButton({ tooltip }) {
   `;
 }
 function DefaultPIPButton() {
-  const { translations } = useDefaultLayoutContext(), $enterText = $i18n$1(translations, "Enter PiP"), $exitText = $i18n$1(translations, "Exit PiP");
+  const { translations } = useDefaultLayoutContext(), $enterText = $i18n$1(translations, "Trình phát thu nhỏ (i)"), $exitText = $i18n$1(translations, "Quay lại (i)");
   return html`
     <media-tooltip class="vds-pip-tooltip vds-tooltip">
       <media-tooltip-trigger>
@@ -11881,7 +11881,7 @@ function DefaultPIPButton() {
   `;
 }
 function DefaultFullscreenButton({ tooltip }) {
-  const { translations } = useDefaultLayoutContext(), $enterText = $i18n$1(translations, "Enter Fullscreen"), $exitText = $i18n$1(translations, "Exit Fullscreen");
+  const { translations } = useDefaultLayoutContext(), $enterText = $i18n$1(translations, "Toàn màn hình (f)"), $exitText = $i18n$1(translations, "Thoát khỏi chế độ toàn màn hình (f)");
   return html`
     <media-tooltip class="vds-fullscreen-tooltip vds-tooltip">
       <media-tooltip-trigger>
@@ -12068,7 +12068,7 @@ function DefaultChaptersMenu({
         <media-tooltip-trigger>
           <media-menu-button
             class="vds-menu-button vds-button"
-            aria-label=${$i18n$1(translations, "Chapters")}
+            aria-label=${$i18n$1(translations, "Phân cảnh")}
           >
             ${IconSlot("menu-chapters")}
           </media-menu-button>
@@ -12077,7 +12077,7 @@ function DefaultChaptersMenu({
           class="vds-tooltip-content"
           placement=${isFunction(tooltip) ? $signal(tooltip) : tooltip}
         >
-          ${$i18n$1(translations, "Chapters")}
+          ${$i18n$1(translations, "Phân cảnh")}
         </media-tooltip-content>
       </media-tooltip>
       ${portal ? MenuPortal$1(menuPortal, items) : items}
@@ -12383,12 +12383,12 @@ function DefaultFontMenu() {
     return html`
       <media-menu class="vds-font-menu vds-menu">
         ${DefaultMenuButton({
-      label: () => i18n$1(translations, "Caption Styles")
+      label: () => i18n$1(translations, "Phụ đề")
     })}
         <media-menu-items class="vds-menu-items">
           ${[
       DefaultMenuSection({
-        label: $i18n$1(translations, "Font"),
+        label: $i18n$1(translations, "Họ phông chữ"),
         children: [DefaultFontFamilyMenu(), DefaultFontSizeSlider()]
       }),
       DefaultMenuSection({
@@ -12615,7 +12615,7 @@ function DefaultAccessibilityMenu() {
     return html`
       <media-menu class="vds-accessibility-menu vds-menu">
         ${DefaultMenuButton({
-      label: () => i18n$1(translations, "Accessibility"),
+      label: () => i18n$1(translations, "Khả năng tiếp cận"),
       icon: "menu-accessibility"
     })}
         <media-menu-items class="vds-menu-items">
@@ -12652,7 +12652,7 @@ function DefaultKeyboardAnimationsMenuCheckbox() {
   return $signal(() => {
     const { translations, userPrefersKeyboardAnimations, noKeyboardAnimations } = useDefaultLayoutContext(), { viewType } = useMediaState(), $disabled = computed(() => viewType() !== "video" || noKeyboardAnimations());
     if ($disabled()) return null;
-    const label = "Keyboard Animations";
+    const label = "Hiệu ứng bàn phím";
     return DefaultMenuItem({
       label: $i18n$1(translations, label),
       children: DefaultMenuCheckbox({
@@ -12807,7 +12807,7 @@ function DefaultPlaybackMenu() {
     return html`
       <media-menu class="vds-playback-menu vds-menu">
         ${DefaultMenuButton({
-      label: () => i18n$1(translations, "Playback"),
+      label: () => i18n$1(translations, "Phát lại"),
       icon: "menu-playback"
     })}
         <media-menu-items class="vds-menu-items">
@@ -12824,7 +12824,7 @@ function DefaultPlaybackMenu() {
   });
 }
 function DefaultLoopCheckbox() {
-  const { remote } = useMediaContext(), { translations } = useDefaultLayoutContext(), label = "Loop";
+  const { remote } = useMediaContext(), { translations } = useDefaultLayoutContext(), label = "Vòng lặp";
   return DefaultMenuItem({
     label: $i18n$1(translations, label),
     children: DefaultMenuCheckbox({
@@ -12841,9 +12841,9 @@ function DefaultSpeedMenuSection() {
     const { translations } = useDefaultLayoutContext(), { canSetPlaybackRate, playbackRate } = useMediaState();
     if (!canSetPlaybackRate()) return null;
     return DefaultMenuSection({
-      label: $i18n$1(translations, "Speed"),
+      label: $i18n$1(translations, "Tốc độ phát"),
       value: $signal(
-        () => playbackRate() === 1 ? i18n$1(translations, "Normal") : playbackRate() + "x"
+        () => playbackRate() === 1 ? i18n$1(translations, "Chuẩn") : playbackRate() + ""
       ),
       children: [
         DefaultMenuSliderItem({
@@ -12870,7 +12870,7 @@ function getSpeedStep() {
   return isArray$1(rates) ? rates[1] - rates[0] || 0.25 : rates.step;
 }
 function DefaultSpeedSlider() {
-  const { translations } = useDefaultLayoutContext(), $label = $i18n$1(translations, "Speed"), $min = getSpeedMin, $max = getSpeedMax, $step = getSpeedStep;
+  const { translations } = useDefaultLayoutContext(), $label = $i18n$1(translations, "Tốc độ phát"), $min = getSpeedMin, $max = getSpeedMax, $step = getSpeedStep;
   return html`
     <media-speed-slider
       class="vds-speed-slider vds-slider"
@@ -12983,7 +12983,7 @@ function DefaultSettingsMenu({
           <media-tooltip-trigger>
             <media-menu-button
               class="vds-menu-button vds-button"
-              aria-label=${$i18n$1(translations, "Settings")}
+              aria-label=${$i18n$1(translations, "Cài đặt")}
             >
               ${IconSlot("menu-settings", "vds-rotate-icon")}
             </media-menu-button>
@@ -12992,7 +12992,7 @@ function DefaultSettingsMenu({
             class="vds-tooltip-content"
             placement=${isFunction(tooltip) ? $signal(tooltip) : tooltip}
           >
-            ${$i18n$1(translations, "Settings")}
+            ${$i18n$1(translations, "Cài đặt")}
           </media-tooltip-content>
         </media-tooltip>
         ${portal ? MenuPortal$1(menuPortal, items) : items}
@@ -13149,7 +13149,7 @@ function DefaultAudioTitle() {
   return $signal(() => {
     let $ref = signal(void 0), $isTextOverflowing = signal(false), media = useMediaContext(), { title, started, currentTime, ended } = useMediaState(), { translations } = useDefaultLayoutContext(), $isTransitionActive = useTransitionActive($ref), $isContinued = () => started() || currentTime() > 0;
     const $title = () => {
-      const word = ended() ? "Replay" : $isContinued() ? "Continue" : "Play";
+      const word = ended() ? "Replay" : $isContinued() ? "Continue" : "Phát (k)";
       return `${i18n$1(translations, word)}: ${title()}`;
     };
     effect(() => {
@@ -13786,24 +13786,24 @@ class MediaAnnouncer extends Component {
   }
   #watchPaused() {
     const { paused } = this.#media.$state;
-    this.#setLabel(!paused() ? "Phát" : "Tạm dừng");
+    this.#setLabel(!paused() ? "Phát (k)" : "Tạm dừng (k)");
   }
   #watchFullscreen() {
     const { fullscreen } = this.#media.$state;
-    this.#setLabel(fullscreen() ? "Enter Fullscreen" : "Exit Fullscreen");
+    this.#setLabel(fullscreen() ? "Toàn màn hình (f)" : "Thoát khỏi chế độ toàn màn hình (f)");
   }
   #watchPiP() {
     const { pictureInPicture } = this.#media.$state;
-    this.#setLabel(pictureInPicture() ? "Enter PiP" : "Exit PiP");
+    this.#setLabel(pictureInPicture() ? "Trình phát thu nhỏ (i)" : "Mở rộng (i)");
   }
   #watchCaptions() {
     const { textTrack } = this.#media.$state;
-    this.#setLabel(textTrack() ? "Closed-Captions On" : "Closed-Captions Off");
+    this.#setLabel(textTrack() ? "Phụ đề (c)" : "Phụ đề (c)");
   }
   #watchVolume() {
     const { muted, volume, audioGain } = this.#media.$state;
     this.#setLabel(
-      muted() || volume() === 0 ? "Mute" : `${Math.round(volume() * (audioGain() ?? 1) * 100)}% ${this.#translate("Volume")}`
+      muted() || volume() === 0 ? "Tắt tiếng (m)" : `${Math.round(volume() * (audioGain() ?? 1) * 100)}% ${this.#translate("Volume")}`
     );
   }
   #startedSeekingAt = -1;
@@ -14175,7 +14175,7 @@ let MuteButton$1 = class MuteButton extends Component {
   onAttach(el) {
     el.setAttribute("data-media-mute-button", "");
     el.setAttribute("data-media-tooltip", "mute");
-    setARIALabel(el, "Mute");
+    setARIALabel(el, "Tắt tiếng (m)");
   }
   #onPress(event) {
     const remote = this.#media.remote;
@@ -14260,7 +14260,7 @@ let PlayButton$1 = class PlayButton extends Component {
   }
   onAttach(el) {
     el.setAttribute("data-media-tooltip", "play");
-    setARIALabel(el, "Play");
+    setARIALabel(el, "Phát (k)");
   }
   #onPress(event) {
     const remote = this.#media.remote;
@@ -16394,7 +16394,7 @@ class MediaRadioGroupElement extends Host(HTMLElement, RadioGroup) {
 const DEFAULT_PLAYBACK_RATES = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2];
 let SpeedRadioGroup$1 = class SpeedRadioGroup extends Component {
   static props = {
-    normalLabel: "Normal",
+    normalLabel: "Chuẩn",
     rates: DEFAULT_PLAYBACK_RATES
   };
   #media;
@@ -18381,7 +18381,7 @@ class SpeedSlider extends Component {
   }
   onAttach(el) {
     el.setAttribute("data-media-speed-slider", "");
-    setAttributeIfEmpty(el, "aria-label", "Speed");
+    setAttributeIfEmpty(el, "aria-label", "Tốc độ phát");
     const { canSetPlaybackRate } = this.#media.$state;
     this.setAttributes({
       "data-supported": canSetPlaybackRate,
@@ -20929,7 +20929,7 @@ function PlyrVideoLayout() {
   ];
 }
 function PlayLargeButton() {
-  const media = useMediaContext(), { translations } = usePlyrLayoutContext(), { title } = media.$state, $label = $signal(() => `${i18n(translations, "Play")}, ${title()}`);
+  const media = useMediaContext(), { translations } = usePlyrLayoutContext(), { title } = media.$state, $label = $signal(() => `${i18n(translations, "Phát (k)")}, ${title()}`);
   return html`
     <media-play-button
       class="plyr__control plyr__control--overlaid"
@@ -21029,7 +21029,7 @@ function CaptionsButton() {
   `;
 }
 function FullscreenButton() {
-  const { translations } = usePlyrLayoutContext(), $enterText = $i18n(translations, "Enter Fullscreen"), $exitText = $i18n(translations, "Exit Fullscreen");
+  const { translations } = usePlyrLayoutContext(), $enterText = $i18n(translations, "Toàn màn hình (f)"), $exitText = $i18n(translations, "Thoát khỏi chế độ toàn màn hình (f)");
   return html`
     <media-fullscreen-button
       class="plyr__controls__item plyr__control"
@@ -21044,7 +21044,7 @@ function FullscreenButton() {
   `;
 }
 function MuteButton() {
-  const { translations } = usePlyrLayoutContext(), $muteText = $i18n(translations, "Mute"), $unmuteText = $i18n(translations, "Unmute");
+  const { translations } = usePlyrLayoutContext(), $muteText = $i18n(translations, "Tắt tiếng (m)"), $unmuteText = $i18n(translations, "Bật âm thanh (m)");
   return html`
     <media-mute-button class="plyr__control" data-no-label data-plyr="mute">
       <slot name="muted-icon" data-class="icon--pressed"></slot>
@@ -21055,7 +21055,7 @@ function MuteButton() {
   `;
 }
 function PIPButton() {
-  const { translations } = usePlyrLayoutContext(), $enterText = $i18n(translations, "Enter PiP"), $exitText = $i18n(translations, "Exit PiP");
+  const { translations } = usePlyrLayoutContext(), $enterText = $i18n(translations, "Trình phát thu nhỏ (i)"), $exitText = $i18n(translations, "Mở rộng (i)");
   return html`
     <media-pip-button class="plyr__controls__item plyr__control" data-no-label data-plyr="pip">
       <slot name="pip-icon"></slot>
@@ -21067,7 +21067,7 @@ function PIPButton() {
   `;
 }
 function PlayButton() {
-  const { translations } = usePlyrLayoutContext(), $playText = $i18n(translations, "Play"), $pauseText = $i18n(translations, "Tạm dừng");
+  const { translations } = usePlyrLayoutContext(), $playText = $i18n(translations, "Phát (k)"), $pauseText = $i18n(translations, "Tạm dừng (k)");
   return html`
     <media-play-button class="plyr__controls__item plyr__control" data-no-label data-plyr="play">
       <slot name="pause-icon" data-class="icon--pressed"></slot>
@@ -21315,7 +21315,7 @@ function Captions() {
   `;
 }
 function Settings() {
-  const { translations } = usePlyrLayoutContext(), $settingsText = $i18n(translations, "Settings");
+  const { translations } = usePlyrLayoutContext(), $settingsText = $i18n(translations, "Cài đặt");
   return html`
     <div class="plyr__controls__item plyr__menu">
       <media-menu>
@@ -21376,7 +21376,7 @@ function SpeedMenu() {
 function SpeedRadioGroup() {
   const { translations, speed } = usePlyrLayoutContext();
   return html`
-    <media-speed-radio-group .rates=${speed} normal-label=${$i18n(translations, "Normal")}>
+    <media-speed-radio-group .rates=${speed} normal-label=${$i18n(translations, "Chuẩn")}>
       <template>
         <media-radio class="plyr__control" data-plyr="speed">
           <span data-part="label"></span>
